@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React X</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="navbar">
+            <div class="logo" style="display: flex;">
+                <img src="./images_elemental/logo.png" alt="logo" class="logo_img" style="
+                    width: 32px;
+                    mix-blend-mode:screen;">
+                <h1 style=" 
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: 30px;
+                    padding:0px 10px;
+                    color: rgb(105, 190, 254);">React</h1>
+            </div>
+            <div class="list_items">
+                <ul>
+                    <li>Home</li>
+                    <li>Documentation</li>
+                    <li>About</li>
+                    <li>Connect</li>
+                </ul>
+            </div>
+            <div class="nav_button">
+                <a href="#">
+                    <button>Install</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="main">
+            <h1>REACT JS</h1>
+            <p>The library for web and native user interfaces</p>
+            <div class="btn">
+                <button class="btn_b1">Learn React</button>
+                <button class="btn_b2">API Reference</button>
+            </div>
+            <img src="./images_elemental/back_react_main.png" alt="bg_image here" class="bg_home" id="rotatingImage">
+        </div>
+    </div>
+    <div class="sec2">
+        <h1>Create user interfaces from components</h1>
+        <p>React lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.</p>
+        <img src="./images_elemental/Screenshot 2025-08-18 102752.png" alt="" class="sec2_im1">
+        <p>Whether you work on your own or with thousands of other developers, using React feels the same. It is designed to let you seamlessly combine components written by independent people, teams, and organizations.</p>
+    </div>
+    <div class="sec3">
+        
+    </div>
+    <script>
+  const img = document.getElementById('rotatingImage');
+
+  let rotation = 0;       // Current rotation angle
+  let velocity = 0;       // Rotation speed
+  let lastScrollY = 0;    // Previous scroll position
+  const friction = 0.95;  // Slow-down factor (closer to 1 = slower stop)
+
+  function animate() {
+    rotation += velocity;
+    img.style.transform = `rotate(${rotation}deg)`;
+
+    velocity *= friction; // Apply friction to slow down
+
+    if (Math.abs(velocity) > 0.01) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const delta = scrollY - lastScrollY; // Change in scroll
+    lastScrollY = scrollY;
+
+    velocity += delta * 0.3; // Adjust multiplier for sensitivity
+
+    if (Math.abs(velocity) > 0.01) {
+      requestAnimationFrame(animate);
+    }
+  });
+</script>
+</body>
+</html>
